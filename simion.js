@@ -5,7 +5,7 @@ async function isSimian(dnas = []) {
     const matrix = buildMatrix(dnas);
     const matrixToTranspose = JSON.parse(JSON.stringify(matrix));
     const transposedMatrix = matrixTransposer(matrixToTranspose);
-  
+
     const horizontalSearch = searcher(matrix);
     const verticalSearch = searcher(transposedMatrix);
     const diagonalSearch = diagonalsSearcher(matrix);
@@ -13,7 +13,7 @@ async function isSimian(dnas = []) {
     const [
       horizontalResult,
       verticalResult,
-      diagonalResult
+      diagonalResult,
     ] = await Promise.all([horizontalSearch, verticalSearch, diagonalSearch]);
     console.log(
       `Horizontal: ${horizontalResult}; Vertical: ${verticalResult}; Diagonal: ${diagonalResult}`
@@ -86,15 +86,15 @@ function diagonalsSearcher(matrix = []) {
   });
 }
 
-function matrixTransposer(matrix = []) { 
-  return matrix[0].map((_, i) => matrix.map(row => row[i]));
+function matrixTransposer(matrix = []) {
+  return matrix[0].map((_, i) => matrix.map((row) => row[i]));
 }
 
 function stringGetter(array = []) {
   return array.join("").toUpperCase();
 }
 
-const dnas = ["ATGCGA", "CAGTGC", "TTATGT", "GAAGG"];
+const dnas = ["ATGCGA", "CAGTGC", "TTATGT", "AGAAGG", "CCCCTA", "TCACTG"];
 isSimian(dnas);
 
 function dnaMatching(dna = "") {
@@ -111,6 +111,8 @@ function matrixValidator(matrix = []) {
   }
 
   const wordsValues = Object.values(words);
-  const matrixValidation = wordsValues.every((val, i, arr) => val === arr[0]);
+  const matrixValidation = wordsValues.every(
+    (val, i, arr) => val === arr[0] && matrix.length === val
+  );
   return matrixValidation;
 }
