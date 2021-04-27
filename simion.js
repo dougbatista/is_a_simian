@@ -6,9 +6,6 @@ async function isSimian(dnas = []) {
     const matrixToTranspose = JSON.parse(JSON.stringify(matrix));
     const transposedMatrix = matrixTransposer(matrixToTranspose);
 
-    console.log('matix :: ', matrix);
-    console.log('transposedMatrix :: ', transposedMatrix);
-
     const horizontalSearch = searcher(matrix);
     const verticalSearch = searcher(transposedMatrix);
     const diagonalSearch = diagonalsSearcher(matrix);
@@ -16,7 +13,7 @@ async function isSimian(dnas = []) {
     const [
       horizontalResult,
       verticalResult,
-      diagonalResult,
+      diagonalResult
     ] = await Promise.all([horizontalSearch, verticalSearch, diagonalSearch]);
     console.log(
       `Horizontal: ${horizontalResult}; Vertical: ${verticalResult}; Diagonal: ${diagonalResult}`
@@ -42,7 +39,7 @@ function buildMatrix(array = []) {
   }
 }
 
-function searcher(matrix) {
+function searcher(matrix = []) {
   return new Promise((resolve, reject) => {
     try {
       for (let i = 0; i < matrix.length; i++) {
@@ -58,18 +55,17 @@ function searcher(matrix) {
   });
 }
 
-function diagonalsSearcher(matrix) {
+function diagonalsSearcher(matrix = []) {
   return new Promise((resolve, reject) => {
     try {
       if (matrix.length < 4) return resolve(false);
-      console.log("passei do if ", matrix);
       const diagonal1 = [],
         diagonal2 = [],
         sequencesMatches = [];
 
-      for (let row = 0; row < matrix.length; row++) {
-        diagonal1.push(matrix[row][row]);
-        diagonal2.push(matrix[row][matrix.length - row - 1]);
+      for (let i = 0; i < matrix.length; i++) {
+        diagonal1.push(matrix[i][i]);
+        diagonal2.push(matrix[i][matrix.length - i - 1]);
       }
 
       let dnaSequence1 = stringGetter(diagonal1);
