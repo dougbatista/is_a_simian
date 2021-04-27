@@ -27,12 +27,16 @@ function diagonalsSearcher(matrix = []) {
       else humanSequencesMatches.push(dnaSequence2);
 
       if (simianSequencesMatches.length > 0) {
-        return resolve(true);
+        return resolve({
+          simianSequencesMatches,
+          humanSequencesMatches,
+          result: true
+        });
       }
 
-      return resolve(false);
+      resolve({ simianSequencesMatches, humanSequencesMatches, result: false });
     } catch (error) {
-      return reject(error);
+      return reject(new Error(error.message));
     }
   });
 }
@@ -50,13 +54,17 @@ function searcher(matrix = []) {
         else humanSequencesMatches.push(dnaSequence);
 
         if (simianSequencesMatches.length > 0 && i + 1 === matrix.length) {
-          return resolve(true);
+          return resolve({
+            simianSequencesMatches,
+            humanSequencesMatches,
+            result: true,
+          });
         }
       }
 
-      resolve(false);
+      resolve({ simianSequencesMatches, humanSequencesMatches, result: false });
     } catch (error) {
-      reject(error);
+      reject(new Error(error.message));
     }
   });
 }

@@ -1,5 +1,10 @@
 function matrixTransposer(matrix = []) {
-  return matrix[0].map((_, i) => matrix.map((row) => row[i]));
+  try {
+    return matrix[0].map((_, i) => matrix.map((row) => row[i]));  
+  } catch (error) {
+    throw new Error(error.message);
+  }
+  
 }
 
 function matrixBuilder(array = []) {
@@ -11,8 +16,12 @@ function matrixBuilder(array = []) {
 
     return matrix;
   } catch (error) {
-    throw error;
+    throw new Error(error.message);
   }
+}
+
+function arrayGrouper(horizontalResult={}, verticalResult={}, diagonalResult={}) {
+  
 }
 
 module.exports = {

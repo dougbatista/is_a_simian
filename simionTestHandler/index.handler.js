@@ -4,7 +4,7 @@ const {
   matrixTransposer,
   searcher,
   diagonalsSearcher
-} = require('./utils');
+} = require('./src/core/utils');
 
 const handler = async function (dnas = []) {
   try {
