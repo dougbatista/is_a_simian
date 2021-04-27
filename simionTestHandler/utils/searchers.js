@@ -1,4 +1,4 @@
-const { stringGetter, dnaMatching } = require('./validators');
+const { stringGetter, dnaMatching } = require("./validators");
 
 function diagonalsSearcher(matrix = []) {
   return new Promise((resolve, reject) => {
@@ -6,7 +6,8 @@ function diagonalsSearcher(matrix = []) {
       if (matrix.length < 4) return resolve(false);
       const diagonal1 = [],
         diagonal2 = [],
-        sequencesMatches = [];
+        simianSequencesMatches = [],
+        humanSequencesMatches = [];
 
       for (let i = 0; i < matrix.length; i++) {
         diagonal1.push(matrix[i][i]);
@@ -19,10 +20,15 @@ function diagonalsSearcher(matrix = []) {
       const dnaSequenceMatch1 = dnaMatching(dnaSequence1);
       const dnaSequenceMatch2 = dnaMatching(dnaSequence2);
 
-      if (dnaSequenceMatch1) sequencesMatches.push(dnaSequenceMatch1);
-      if (dnaSequenceMatch2) sequencesMatches.push(dnaSequenceMatch2);
+      if (dnaSequenceMatch1) simianSequencesMatches.push(dnaSequenceMatch1);
+      else humanSequencesMatches.push(dnaSequence1);
 
-      if (sequencesMatches.length > 0) return resolve(true);
+      if (dnaSequenceMatch2) simianSequencesMatches.push(dnaSequenceMatch2);
+      else humanSequencesMatches.push(dnaSequence2);
+
+      if (simianSequencesMatches.length > 0) {
+        return resolve(true);
+      }
 
       return resolve(false);
     } catch (error) {
@@ -33,13 +39,21 @@ function diagonalsSearcher(matrix = []) {
 
 function searcher(matrix = []) {
   return new Promise((resolve, reject) => {
+    const simianSequencesMatches = [],
+      humanSequencesMatches = [];
     try {
       for (let i = 0; i < matrix.length; i++) {
         const dnaSequence = stringGetter(matrix[i]);
         const dnaSequenceMatch = dnaMatching(dnaSequence);
 
-        if (dnaSequenceMatch) return resolve(true);
+        if (dnaSequenceMatch) simianSequencesMatches.push(dnaSequence);
+        else humanSequencesMatches.push(dnaSequence);
+
+        if (simianSequencesMatches.length > 0 && i + 1 === matrix.length) {
+          return resolve(true);
+        }
       }
+
       resolve(false);
     } catch (error) {
       reject(error);
@@ -49,5 +63,5 @@ function searcher(matrix = []) {
 
 module.exports = {
   searcher,
-  diagonalsSearcher,
+  diagonalsSearcher
 };

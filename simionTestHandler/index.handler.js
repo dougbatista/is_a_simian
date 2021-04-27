@@ -9,7 +9,7 @@ const {
 const handler = async function (dnas = []) {
   try {
     if (!matrixValidator(dnas)) return false;
-
+    
     const matrix = matrixBuilder(dnas);
     const matrixToTranspose = JSON.parse(JSON.stringify(matrix));
     const transposedMatrix = matrixTransposer(matrixToTranspose);
@@ -21,7 +21,7 @@ const handler = async function (dnas = []) {
     const [
       horizontalResult,
       verticalResult,
-      diagonalResult,
+      diagonalResult
     ] = await Promise.all([horizontalSearch, verticalSearch, diagonalSearch]);
     console.log(
       `Horizontal: ${horizontalResult}; Vertical: ${verticalResult}; Diagonal: ${diagonalResult}`
