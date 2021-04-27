@@ -5,7 +5,7 @@ async function isSimian(dnas = []) {
     const matrix = buildMatrix(dnas);
     const matrixToTranspose = JSON.parse(JSON.stringify(matrix));
     const transposedMatrix = matrixTransposer(matrixToTranspose);
-
+  
     const horizontalSearch = searcher(matrix);
     const verticalSearch = searcher(transposedMatrix);
     const diagonalSearch = diagonalsSearcher(matrix);
@@ -86,21 +86,15 @@ function diagonalsSearcher(matrix = []) {
   });
 }
 
-function matrixTransposer(matrix = []) {
-  for (let i = 0; i < matrix.length; i++) {
-    for (let j = 0; j < i; j++) {
-      [matrix[i][j], matrix[j][i]] = [matrix[j][i], matrix[i][j]];
-    }
-  }
-
-  return matrix;
+function matrixTransposer(matrix = []) { 
+  return matrix[0].map((_, i) => matrix.map(row => row[i]));
 }
 
 function stringGetter(array = []) {
   return array.join("").toUpperCase();
 }
 
-const dnas = ["ATGCGT", "CAGTGT", "TTAGTC"];
+const dnas = ["ATGCGA", "CAGTGC", "TTATGT", "GAAGG"];
 isSimian(dnas);
 
 function dnaMatching(dna = "") {
