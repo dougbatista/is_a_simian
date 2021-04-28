@@ -1,6 +1,6 @@
 const service = require('../../src/core/services/dnaStatsService');
 
-function dnaStatsController() {
+async function dnaStatsController() {
   try {
     return await service.statsDNAService();
   } catch (error) {
