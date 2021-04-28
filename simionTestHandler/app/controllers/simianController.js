@@ -14,7 +14,7 @@ async function isASimianController(dnas = []) {
     statusResult.result = [
       horizontalResult,
       verticalResult,
-      diagonalResult,
+      diagonalResult
     ].some((obj) => obj.result == true);
 
     if(statusResult.result) 
