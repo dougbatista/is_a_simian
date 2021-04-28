@@ -1,13 +1,16 @@
 const simianController = require("./app/controllers/simianController");
 
-exports.handler = async (event) => {
-	console.log('EVENT ::: ', event);
-  const { code, result } = await simianController.isASimianController();
+exports.handler = async (event, _, callback) => {
+  const { dna } = event;
+  const { code, result } = await simianController.isASimianController(dna);
+	const response = {
+		statusCode: code,
+		body: {
+			isASimianDNA: result,
+		},
+	};
+	if (code != 200) return callback(JSON.stringify(response), null);
+  
 
-  const response = {
-    statusCode: code,
-    body: result
-  };
-
-  return response;
+	callback(null, response);
 };
