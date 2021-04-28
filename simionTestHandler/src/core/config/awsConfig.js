@@ -1,5 +1,4 @@
-const AWS = require('aws-sdk');
-//TODO colocar na variável de ambiente 
-AWS.config.update({region: 'us-east-1'});
+const AWS = require("aws-sdk");
+AWS.config.update({ region: process.env.AWS_REGION_APP });
 
 module.exports.AWS = AWS;
