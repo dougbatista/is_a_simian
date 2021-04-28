@@ -4,24 +4,32 @@ const queueService = require("../../src/core/services/queueService");
 async function isASimianController(dnas = []) {
   const statusResult = {};
   try {
+    const isASimianResults = await simianService.isASimian(dnas);
     const {
       horizontalResult,
       verticalResult,
       diagonalResult
-    } = await simianService.isASimian(dnas);
+    } = isASimianResults;
 
-    statusResult.code = 200;
     statusResult.result = [
       horizontalResult,
       verticalResult,
-      diagonalResult
+      diagonalResult,
     ].some((obj) => obj.result == true);
-    
+
+    if(statusResult.result) 
+      statusResult.code = 200;
+    else
+      statusResult.code = 403;
+
+    queueService.queueToDNAStore(isASimianResults);
+
     return statusResult;
   } catch (error) {
-    console.log('Controller error:', error);
+    console.log("Controller error:", error);
     statusResult.code = 403;
     statusResult.result = false;
+    return statusResult;
   }
 }
 

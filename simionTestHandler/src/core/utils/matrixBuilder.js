@@ -1,10 +1,9 @@
 function matrixTransposer(matrix = []) {
   try {
-    return matrix[0].map((_, i) => matrix.map((row) => row[i]));  
+    return matrix[0].map((_, i) => matrix.map((row) => row[i]));
   } catch (error) {
     throw new Error(error.message);
   }
-  
 }
 
 function matrixBuilder(array = []) {
@@ -20,11 +19,41 @@ function matrixBuilder(array = []) {
   }
 }
 
-function arrayGrouper(horizontalResult={}, verticalResult={}, diagonalResult={}) {
-  
+function arrayGrouper({horizontalResult, verticalResult, diagonalResult}) {
+  try {
+    const {
+      simianSequencesMatches: simianHor,
+      humanSequencesMatches: humanHor
+    } = horizontalResult;
+
+    const {
+      simianSequencesMatches: simianVer,
+      humanSequencesMatches: humanVer
+    } = verticalResult;
+    const {
+      simianSequencesMatches: simianDiag,
+      humanSequencesMatches: humamDiag
+    } = diagonalResult;
+
+    const simiansAllMatch = [...simianHor, ...simianVer, ...simianDiag];
+    const humansAllMatch = [...humanHor, ...humanVer, ...humamDiag];
+    
+    const uniqueSimiansMatch = uniqueElements(simiansAllMatch);
+    const uniqueHumanMatch = uniqueElements(humansAllMatch);
+
+    return { uniqueSimiansMatch, uniqueHumanMatch };
+  } catch (error) {
+    console.log('aqui estou error ??? ', error)
+    throw new Error(error.message);
+  }
+}
+
+function uniqueElements(array = []) {
+  return [...new Set(array)];
 }
 
 module.exports = {
   matrixTransposer,
-  matrixBuilder
-}
+  matrixBuilder,
+  arrayGrouper
+};
