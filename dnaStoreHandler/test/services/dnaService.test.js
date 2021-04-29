@@ -41,7 +41,6 @@ describe("function - humanDnaService", () => {
 
   it("Should insert human DNAS", async () => {
     sinon.stub(repository, "insertData").resolves({ result: "OK" });
-
     try {
       const { HUMAN_DNAS } = mocks;
 
@@ -55,7 +54,7 @@ describe("function - humanDnaService", () => {
       .rejects(new Error("Something wrong happened"));
     try {
       const { HUMAN_DNAS } = mocks;
-      await service.simianDnaService(HUMAN_DNAS);
+      await service.humanDnaService(HUMAN_DNAS);
     } catch (error) {
       expect(error).to.not.be.null;
     }

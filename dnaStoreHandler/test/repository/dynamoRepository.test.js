@@ -4,7 +4,7 @@ const mocks = require("../mocks/mock");
 const sinon = require("sinon");
 const { expect } = require("chai");
 
-describe("function - insertData", () => {
+describe.skip("function - insertData", () => {
   beforeEach(() => {
     sinon.restore();
     sinon.reset();
