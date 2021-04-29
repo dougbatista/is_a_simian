@@ -12,9 +12,9 @@ Essa aplicação foi construída utilizando JavaScript rodando na plataforma Nod
 Temos a divisão da aplicação entre 2 rotas no API Gateway, 3 Lambdas e 1 fila.
 
 ### Lambdas
-- [isASimianHandler](https://github.com/dougbatista/simions_test/tree/main/isASimianHandler): Cuida de todas as regras relacionadas de validação das matrizes. Também envia os resultados obtidos por fila para o lambda que cuidará da inserção.
-- [dnaStoreHandler](https://github.com/dougbatista/simions_test/tree/main/dnaStoreHandler): Responsável por receber os dados via fila do lambda isASimianHandler e realizar a inserção na base de dados.
-- [dnaStatsHandler](https://github.com/dougbatista/simions_test/tree/main/dnaStatsHandler): Responsável por obter os dados inseridos pelo [dnaStatsHandler](./dnaStatsHandler) e gerar as estátisticas dos DNAS.
+- [isASimianHandler](./isASimianHandler): Cuida de todas as regras relacionadas de validação das matrizes. Também envia os resultados obtidos por fila para o lambda que cuidará da inserção.
+- [dnaStoreHandler](./dnaStoreHandler): Responsável por receber os dados via fila do lambda isASimianHandler e realizar a inserção na base de dados.
+- [dnaStatsHandler](./dnaStatsHandler): Responsável por obter os dados inseridos pelo [dnaStatsHandler](./dnaStatsHandler) e gerar as estátisticas dos DNAS.
 
 
 
