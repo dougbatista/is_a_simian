@@ -36,7 +36,7 @@ function diagonalsSearcher(matrix = []) {
 
       resolve({ simianSequencesMatches, humanSequencesMatches, result: false });
     } catch (error) {
-      return reject(new Error(error.message));
+      return reject(new Error(error.stack));
     }
   });
 }
@@ -64,7 +64,7 @@ function searcher(matrix = []) {
 
       resolve({ simianSequencesMatches, humanSequencesMatches, result: false });
     } catch (error) {
-      reject(new Error(error.message));
+      reject(new Error(error.stack));
     }
   });
 }

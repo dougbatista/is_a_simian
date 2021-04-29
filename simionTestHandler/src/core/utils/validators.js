@@ -1,4 +1,4 @@
-function dnaMatching(dna = '') {
+function dnaMatching(dna = "") {
   if (dna.match(/.*([G,A,T,C]+)\1{3}.*/g)) return dna;
 }
 
@@ -19,11 +19,11 @@ function matrixValidator(matrix = []) {
 }
 
 function stringGetter(array = []) {
-  return array.join('').toUpperCase();
+  return array.join("").toUpperCase();
 }
 
 module.exports = {
   dnaMatching,
   matrixValidator,
-  stringGetter
-}
+  stringGetter,
+};
