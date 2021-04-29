@@ -6,14 +6,14 @@ const {
     diagonalsSearcher
   } = require('../utils');
   
-  async function isASimian(dnas = []) {
+  async function isASimianService(dnas = []) {
     try {
       if (!matrixValidator(dnas)) return false;
-      
+
       const matrix = matrixBuilder(dnas);
       const matrixToTranspose = JSON.parse(JSON.stringify(matrix));
       const transposedMatrix = matrixTransposer(matrixToTranspose);
-  
+      
       const horizontalSearch = searcher(matrix);
       const verticalSearch = searcher(transposedMatrix);
       const diagonalSearch = diagonalsSearcher(matrix);
@@ -23,6 +23,7 @@ const {
         verticalResult,
         diagonalResult
       ] = await Promise.all([horizontalSearch, verticalSearch, diagonalSearch]);
+
       console.log(
         `Horizontal: ${horizontalResult}; Vertical: ${verticalResult}; Diagonal: ${diagonalResult}`
       );
@@ -37,4 +38,4 @@ const {
     }
   };
   
-  module.exports.isASimian = isASimian;
+  module.exports.isASimianService = isASimianService;
