@@ -1,5 +1,5 @@
 const { AWS } = require("./awsConfig");
 
-const ddb = new AWS.DynamoDB({ apiVersion: '2012-08-10' });
+const ddb = new AWS.DynamoDB({ apiVersion: process.env.DYNAMO_API_VERSION });
 
 module.exports.ddb = ddb;

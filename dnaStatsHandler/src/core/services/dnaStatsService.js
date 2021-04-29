@@ -4,9 +4,10 @@ const helper = require("../helpers/statusHelper");
 
 async function statsDNAService() {
   try {
+    
     const [humanResult, simianResult] = await Promise.all([
-      repository.getData("dnaHuman"),
-      repository.getData("dnaSimian")
+      repository.getData(process.env.HUMAN_TABLE),
+      repository.getData(process.env.SIMIAN_TABLE)
     ]);
 
     const amountHumanResultDNA = validator.uniquenessValidator(humanResult);
