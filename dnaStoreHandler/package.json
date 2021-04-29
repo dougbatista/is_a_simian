@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/dougbatista/simions_test#readme",
   "devDependencies": {
+    "aws-sdk-mock": "^5.1.0",
     "chai": "^4.3.4",
     "mocha": "^8.3.2",
     "nyc": "^15.1.0",
