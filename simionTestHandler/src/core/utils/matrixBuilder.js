@@ -2,7 +2,7 @@ function matrixTransposer(matrix = []) {
   try {
     return matrix[0].map((_, i) => matrix.map((row) => row[i]));
   } catch (error) {
-    throw new Error(error.message);
+    throw new Error(error.message); 
   }
 }
 
@@ -43,8 +43,7 @@ function arrayGrouper({horizontalResult, verticalResult, diagonalResult}) {
 
     return { uniqueSimiansMatch, uniqueHumanMatch };
   } catch (error) {
-    console.log('aqui estou error ??? ', error)
-    throw new Error(error.message);
+    throw new Error(error.stack);
   }
 }
 
@@ -55,5 +54,6 @@ function uniqueElements(array = []) {
 module.exports = {
   matrixTransposer,
   matrixBuilder,
-  arrayGrouper
+  arrayGrouper,
+  uniqueElements
 };
