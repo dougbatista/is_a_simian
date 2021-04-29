@@ -6,7 +6,7 @@ async function insertData(data = "", table = "") {
     dbParams.TableName = table;
     dbParams.Item.dna.S = data;
     dbParams.Item.id.N = `${+new Date()}`;
-    return await ddb.putItem(dbParams).promise();
+    return await ddb.putItem(dbParams);
   } catch (error) {
     throw new Error(error.stack);
   }

@@ -1,0 +1,2 @@
+exports.SIMIAN_DNAS = ["GGGGTT", "CCCCTA"];
+exports.HUMAN_DNAS = ["ACTACT", "TATGCC", "GGAACA", "CTTACC", "ACTGAG"];
