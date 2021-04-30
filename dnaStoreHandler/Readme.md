@@ -1,6 +1,6 @@
 # Guia da aplicação - dnaStoreHandler
 
-## Estrutura de dnaStoreHandler
+## Estrutura de pastas
 
 ```
 .

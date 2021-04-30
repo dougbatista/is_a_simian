@@ -1,6 +1,6 @@
 # Guia da aplicação - dnaStatsHandler
 
-## Estrutura de dnaStatsHandler
+## Estrutura de pastas
 
 ```
 .
