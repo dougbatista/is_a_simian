@@ -37,6 +37,5 @@ $ npm test
 ```
 $ npm run coverage
 ```
-**ENV VARS**
-- **LAMBDA ENV VARS**:
+## ENV VARS
 ![alt text](../architecture/dnaStats.jpeg "dnaStats vars")

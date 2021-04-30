@@ -30,7 +30,6 @@ $ npm test
 ```
 $ npm run coverage
 ```
-**ENV VARS**
-- **LAMBDA ENV VARS**:
+## ENV VARS
 ![alt text](../architecture/isASimian.jpeg "Simian vars")
 
