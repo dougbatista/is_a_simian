@@ -22,7 +22,7 @@
 
 ## Instalação das dependências
 ```
-$ npm instal
+$ npm install
 ```
 ## Testes
 - **Testes de unidade**
