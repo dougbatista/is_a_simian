@@ -1,6 +1,6 @@
 # Guia da aplicação
 
-Essa aplicação foi construída utilizando JavaScript rodando na plataforma Node.JS.
+Essa aplicação foi construída utilizando JavaScript rodando na plataforma Node.JS na sua versão **14.x**.
 
 ## Infraestrutura
 
@@ -19,7 +19,7 @@ Temos a divisão da aplicação entre 2 rotas no API Gateway, 3 Lambdas e 1 fila
 
 ### Fila (Smple Queue Service)
 
-- Responsável por transitar dados dos lambdas [isASimianHandler](./isASimianHandler)
+- Responsável por transitar dados dos lambdas [isASimianHandler](./isASimianHandler) para o [dnaStoreHandler](./dnaStoreHandler)
 
 ### DynamoDB
 
@@ -31,13 +31,13 @@ Temos a divisão da aplicação entre 2 rotas no API Gateway, 3 Lambdas e 1 fila
 - **/simian**: Responsável por receber os DNAS e envia-los ao lambda [isASimianHandler](./isASimianHandler)
   - **Rota**: https://h4pv7hr9q1.execute-api.us-east-1.amazonaws.com/prod/simian
   - **Método**: POST
-  - **Input**
+  - **Input**:
   ```json
   {
     "dna": ["ATGCGA", "CAGTGC", "TTATGT", "AGAAGG", "CCCCTA", "TCACTG"]
   }
   ```
-  - **Output**
+  - **Output**:
   ```json
     {
       "statusCode": 200,
@@ -48,7 +48,7 @@ Temos a divisão da aplicação entre 2 rotas no API Gateway, 3 Lambdas e 1 fila
 - **/stats**: Responsável por retornar as estatísticas dos dados de DNA inseridos ao Dynamo pelo lambda [dnaStoreHandler](./dnaStoreHandler)
   - **ROTA**: https://h4pv7hr9q1.execute-api.us-east-1.amazonaws.com/prod/stats
   - **Método**: GET
-  - **Output**
+  - **Output**:
   ```json
   {
     "statusCode": 200,
