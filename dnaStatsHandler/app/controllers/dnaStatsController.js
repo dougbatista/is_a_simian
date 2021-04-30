@@ -4,7 +4,6 @@ async function dnaStatsController() {
   try {
     return await service.statsDNAService();
   } catch (error) {
-    console.log('Error: ', error);
     throw error;
   }
 }

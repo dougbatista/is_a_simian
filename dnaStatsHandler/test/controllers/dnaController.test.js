@@ -34,11 +34,5 @@ describe("function - dnaStatsController", () => {
     } catch (error) {
       expect(error).to.be.not.null;
     }
-
-    expect(status).to.have.all.keys(
-      "count_mutant_dna",
-      "count_human_dna",
-      "ratio"
-    );
   });
 });
