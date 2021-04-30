@@ -2,7 +2,7 @@
 
 ## Estrutura de pastas
 
-
+```
 .                       
 ├── app
 │   ├── controllers          # Entrada de dados para a camada de regra de negócio e saída para o cliente
@@ -16,7 +16,7 @@
 ├── index.js                 # Entrada do handler da função lambda
 ├── README.md
 └── package.json             # Arquivo de dependência e informações gerais sobre o projeto
-
+```
 > Foi utilizado a arquitetura de 3 camadas.
 
 ## Instalação das dependências
