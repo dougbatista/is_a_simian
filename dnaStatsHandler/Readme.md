@@ -1,5 +1,4 @@
 # Guia da aplicação - dnaStatsHandler
-
 ## Estrutura de pastas
 
 ```
@@ -19,15 +18,12 @@
 ├── README.md
 └── package.json                # Arquivo de dependências e informações gerais sobre o projeto
 ```
-
 > Foi utilizado a arquitetura de 3 camadas.
-
 ## Instalação das dependências
 
 ```
 $ npm install
 ```
-
 ## Testes
 
 - **Testes de unidade**
@@ -41,3 +37,5 @@ $ npm test
 ```
 $ npm run coverage
 ```
+- **LAMBDA ENV VARS**:
+![alt text](../architecture/dnaStats.jpeg "dnaStats vars")

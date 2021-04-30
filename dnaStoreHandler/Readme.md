@@ -1,7 +1,5 @@
 # Guia da aplicação - dnaStoreHandler
-
 ## Estrutura de pastas
-
 ```
 .
 ├── app
@@ -18,15 +16,11 @@
 ├── README.md
 └── package.json                    # Arquivo de dependências e informações gerais sobre o projeto
 ```
-
 > Foi utilizado a arquitetura de 3 camadas.
-
 ## Instalação das dependências
-
 ```
 $ npm install
 ```
-
 ## Testes
 
 - **Testes de unidade**
@@ -34,9 +28,10 @@ $ npm install
 ```
 $ npm test
 ```
-
 - **Cobertura de testes**:
 
 ```
 $ npm run coverage
 ```
+- **LAMBDA ENV VARS**:
+![alt text](../architecture/dnaStore.jpeg "dnaStore vars")

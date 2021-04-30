@@ -1,5 +1,4 @@
 # Guia da aplicação - isSimianHandler
-
 ## Estrutura de pastas
 
 ```
@@ -18,7 +17,6 @@
 └── package.json             # Arquivo de dependências e informações gerais sobre o projeto
 ```
 > Foi utilizado a arquitetura de 3 camadas.
-
 ## Instalação das dependências
 ```
 $ npm install
@@ -32,4 +30,6 @@ $ npm test
 ```
 $ npm run coverage
 ```
+- **LAMBDA ENV VARS**:
+![alt text](../architecture/isASimian.jpeg "Simian vars")
 
