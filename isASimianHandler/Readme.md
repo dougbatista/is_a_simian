@@ -15,7 +15,7 @@
 ├── test                     # Testes unitários
 ├── index.js                 # Entrada do handler da função lambda
 ├── README.md
-└── package.json             # Arquivo de dependência e informações gerais sobre o projeto
+└── package.json             # Arquivo de dependências e informações gerais sobre o projeto
 ```
 > Foi utilizado a arquitetura de 3 camadas.
 
