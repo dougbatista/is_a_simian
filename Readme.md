@@ -9,7 +9,7 @@ Essa aplicação foi construída utilizando JavaScript rodando na plataforma Nod
 > A aplicação foi construída no modelo Serverless na plataforma Amazon Web Services (AWS).
 > Essa decisão foi tomada para evitar custos, facilitar a entrega e dar maior visibilidade para as etapas do desafio.
 
-Temos a divisão da aplicação entre 2 rotas no API Gateway, 3 Lambdas e 1 fila.
+Temos a divisão da aplicação entre 2 rotas no API Gateway, 3 Lambdas e 1 fila. Toda a infraestrutura foi provisionada Na Virgínia do Norte, EUA.
 
 ### Lambdas
 
